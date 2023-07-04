@@ -19,6 +19,8 @@
 
 	const error = ref('');
 
+	const emit = defineEmits(['obtener-clima']);
+
 	const consultarClima = () => {
 		if (Object.values(busqueda).includes('')) {
 			error.value = 'Todos los campos son obligatorios';
@@ -27,6 +29,7 @@
 		}
 		error.value = '';
 		// Consultar el clima
+		emit('obtener-clima', busqueda);
 	};
 </script>
 
